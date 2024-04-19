@@ -22,4 +22,4 @@ go build -o notely && ./notely
 
 You do *not* need to set up a database or any interactivity on the webpage yet. Instructions for that will come later in the course!
 
-Added this line to open a PR
+Added this line to open a PR. Again
