@@ -24,7 +24,7 @@ func TestGetAPIKey(t *testing.T) {
 		"api key lowercase one-2":    {input: http.Header{"Authorization": []string{"apiKey secretkey"}}, want_return: "", want_err: ErrMalformedAuthHeader},
 		"correct":                    {input: http.Header{"Authorization": []string{"ApiKey secretkey"}}, want_return: "secretkey", want_err: nil},
 		"correct key with two parts": {input: http.Header{"Authorization": []string{"ApiKey secretkey anotherone"}}, want_return: "secretkey", want_err: nil},
-		"correct key but no value":   {input: http.Header{"Authorization": []string{"ApiKey"}}, want_return: "", want_err: nil},
+		"correct key but no value":   {input: http.Header{"Authorization": []string{"ApiKey"}}, want_return: "", want_err: ErrMalformedAuthHeader},
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
