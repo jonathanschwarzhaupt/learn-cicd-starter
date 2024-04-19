@@ -21,3 +21,20 @@ jobs:
       - name: Run unit tests
         run: go test ./... -v -cover
 
+  linter:
+    name: Linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
+
+      - name: Run Linter
+        run: test -z $(go fmt ./...)
+
+
